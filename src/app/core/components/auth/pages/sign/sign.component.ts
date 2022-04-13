@@ -9,12 +9,14 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class SignComponent implements OnInit {
 
-  public formAuth: FormGroup = this._formBuilder.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
-  });
+  public formAuth: FormGroup = this._formBuilder.group(
+    {
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+    }
+  );
 
-  public msgError!:string;
+  public msgError!: string;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -26,11 +28,11 @@ export class SignComponent implements OnInit {
 
   public submitForm() {
     if(this.formAuth.valid) {
-      this._authService.signIn({
+      this._authService.sign({
         email: this.formAuth.value.email,
         password: this.formAuth.value.password,
       }).subscribe({
-        next: (res)=> res,
+        next: (res) => res,
         error: (e) => (this.msgError = e),
       })
     }
