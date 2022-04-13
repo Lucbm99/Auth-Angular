@@ -11,8 +11,8 @@ export class SignComponent implements OnInit {
 
   public formAuth: FormGroup = this._formBuilder.group(
     {
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      email: ['dener@vidafullstack.com.br', [Validators.required, Validators.email]],
+      password: ['123', [Validators.required]],
     }
   );
 
